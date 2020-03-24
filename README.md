@@ -1,1 +1,0 @@
-# study_book_jpa
