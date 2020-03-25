@@ -1,28 +1,44 @@
 package com.my.jpabook.start;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDateTime;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "MEMBER")
+@Table(name = "MEMBER", uniqueConstraints = {@UniqueConstraint(
+        name = "NAME_AGE_UNIQUE",
+        columnNames = {"NAME", "AGE"}
+)})
 public class Member {
 
     @Id
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "ID")
-    private String id;
+    private Long id;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false, length = 10)
     private String username;
 
-    @Column(name = "AGE")
     private Integer age;
 
-    public String getId() {
+    //==추가==
+    @Enumerated(EnumType.STRING)
+    private RoleType roleType;
+
+    //@Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime createdDate;
+
+    @Transient
+    private LocalDateTime lastModifiedDate;
+
+    @Lob
+    private String description;
+
+    public Long getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
