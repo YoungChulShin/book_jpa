@@ -20,6 +20,13 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
+    protected Member(){}
+
+    public Member(String id, String username) {
+        this.id = id;
+        this.username = username;
+    }
+
     //== Getter
     public String getId() {
         return id;
@@ -31,5 +38,9 @@ public class Member {
 
     public Team getTeam() {
         return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }
