@@ -1,44 +1,30 @@
 package com.jpabook.ch5.domain;
 
 import lombok.Getter;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-<<<<<<< HEAD
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-=======
-import javax.persistence.Temporal;
->>>>>>> af29c3b7b0a778e2f129022208e26f994709a244
 
 @Getter
 @Entity
 public class Team {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TEAM_ID")
-    private String id;
+    private Long id;
 
     private String name;
 
-<<<<<<< HEAD
-    @OneToMany(mappedBy = "team")
+    @OneToMany
+    @JoinColumn(name = "TEAM_ID")
     private List<Member> members = new ArrayList<>();
 
     //== Constructor
-=======
->>>>>>> af29c3b7b0a778e2f129022208e26f994709a244
     protected Team(){}
 
-    public Team(String id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
     //== Getter
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
