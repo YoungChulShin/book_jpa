@@ -16,9 +16,12 @@ public class Ch5Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Ch5Application.class, args);
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> af29c3b7b0a778e2f129022208e26f994709a244
 	}
 
 }

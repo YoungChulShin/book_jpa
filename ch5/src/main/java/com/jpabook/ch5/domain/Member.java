@@ -20,7 +20,10 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
+<<<<<<< HEAD
     //==Constructor
+=======
+>>>>>>> af29c3b7b0a778e2f129022208e26f994709a244
     protected Member(){}
 
     public Member(String id, String username) {
@@ -42,6 +45,7 @@ public class Member {
     }
 
     public void setTeam(Team team) {
+<<<<<<< HEAD
 
         if (this.team != null) {
             this.team.getMembers().remove(this);
@@ -53,5 +57,8 @@ public class Member {
 
     public void setName(String name) {
         this.username = name;
+=======
+        this.team = team;
+>>>>>>> af29c3b7b0a778e2f129022208e26f994709a244
     }
 }
